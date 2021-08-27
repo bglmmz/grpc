@@ -23,11 +23,11 @@ import (
 	"flag"
 	"net"
 
-	grpc "github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/credentials/alts"
-	"github.com/Hyperledger-TWGC/grpc/grpclog"
-	"github.com/Hyperledger-TWGC/grpc/interop"
-	testpb "github.com/Hyperledger-TWGC/grpc/interop/grpc_testing"
+	grpc "github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/credentials/alts"
+	"github.com/bglmmz/grpc/grpclog"
+	"github.com/bglmmz/grpc/interop"
+	testpb "github.com/bglmmz/grpc/interop/grpc_testing"
 )
 
 var (

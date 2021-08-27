@@ -26,7 +26,7 @@ import (
 	"net"
 	"sync"
 
-	"github.com/Hyperledger-TWGC/grpc/credentials/alts/internal/conn"
+	"github.com/bglmmz/grpc/credentials/alts/internal/conn"
 )
 
 // Stats is used to collect statistics about concurrent handshake calls.

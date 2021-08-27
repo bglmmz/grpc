@@ -29,13 +29,13 @@ import (
 	"testing"
 	"time"
 
+	"github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/metadata"
+	"github.com/bglmmz/grpc/stats"
+	testpb "github.com/bglmmz/grpc/stats/grpc_testing"
+	"github.com/bglmmz/grpc/status"
 	"github.com/golang/protobuf/proto"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/metadata"
-	"github.com/Hyperledger-TWGC/grpc/stats"
-	testpb "github.com/Hyperledger-TWGC/grpc/stats/grpc_testing"
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 func init() {

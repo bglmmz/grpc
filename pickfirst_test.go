@@ -24,12 +24,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/internal/leakcheck"
+	"github.com/bglmmz/grpc/resolver"
+	"github.com/bglmmz/grpc/resolver/manual"
+	"github.com/bglmmz/grpc/status"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/internal/leakcheck"
-	"github.com/Hyperledger-TWGC/grpc/resolver"
-	"github.com/Hyperledger-TWGC/grpc/resolver/manual"
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 func errorDesc(err error) string {

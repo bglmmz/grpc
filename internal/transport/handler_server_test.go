@@ -30,13 +30,13 @@ import (
 	"testing"
 	"time"
 
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/metadata"
+	"github.com/bglmmz/grpc/status"
 	"github.com/golang/protobuf/proto"
 	dpb "github.com/golang/protobuf/ptypes/duration"
 	"golang.org/x/net/context"
 	epb "google.golang.org/genproto/googleapis/rpc/errdetails"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/metadata"
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 func TestHandlerTransport_NewServerHandlerTransport(t *testing.T) {

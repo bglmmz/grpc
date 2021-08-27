@@ -17,9 +17,9 @@ For example, to enable server reflection in `example/helloworld`, we need to mak
 +++ b/examples/helloworld/greeter_server/main.go
 @@ -40,6 +40,7 @@ import (
         "golang.org/x/net/context"
-        "github.com/Hyperledger-TWGC/grpc"
-        pb "github.com/Hyperledger-TWGC/grpc/examples/helloworld/helloworld"
-+       "github.com/Hyperledger-TWGC/grpc/reflection"
+        "github.com/bglmmz/grpc"
+        pb "github.com/bglmmz/grpc/examples/helloworld/helloworld"
++       "github.com/bglmmz/grpc/reflection"
  )
 
  const (

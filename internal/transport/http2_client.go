@@ -32,14 +32,14 @@ import (
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/hpack"
 
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
-	"github.com/Hyperledger-TWGC/grpc/internal/channelz"
-	"github.com/Hyperledger-TWGC/grpc/keepalive"
-	"github.com/Hyperledger-TWGC/grpc/metadata"
-	"github.com/Hyperledger-TWGC/grpc/peer"
-	"github.com/Hyperledger-TWGC/grpc/stats"
-	"github.com/Hyperledger-TWGC/grpc/status"
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/credentials"
+	"github.com/bglmmz/grpc/internal/channelz"
+	"github.com/bglmmz/grpc/keepalive"
+	"github.com/bglmmz/grpc/metadata"
+	"github.com/bglmmz/grpc/peer"
+	"github.com/bglmmz/grpc/stats"
+	"github.com/bglmmz/grpc/status"
 )
 
 // http2Client implements the ClientTransport interface with HTTP2.

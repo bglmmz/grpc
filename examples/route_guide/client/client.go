@@ -29,11 +29,11 @@ import (
 	"math/rand"
 	"time"
 
+	"github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/credentials"
+	pb "github.com/bglmmz/grpc/examples/route_guide/routeguide"
+	"github.com/bglmmz/grpc/testdata"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
-	pb "github.com/Hyperledger-TWGC/grpc/examples/route_guide/routeguide"
-	"github.com/Hyperledger-TWGC/grpc/testdata"
 )
 
 var (

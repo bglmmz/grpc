@@ -22,7 +22,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/Hyperledger-TWGC/grpc/codes"
+	"github.com/bglmmz/grpc/codes"
 )
 
 type codeBench uint32

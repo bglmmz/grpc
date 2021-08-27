@@ -21,8 +21,8 @@
 package service
 
 import (
-	channelzpb "github.com/Hyperledger-TWGC/grpc/channelz/grpc_channelz_v1"
-	"github.com/Hyperledger-TWGC/grpc/internal/channelz"
+	channelzpb "github.com/bglmmz/grpc/channelz/grpc_channelz_v1"
+	"github.com/bglmmz/grpc/internal/channelz"
 )
 
 func sockoptToProto(skopts *channelz.SocketOptionData) []*channelzpb.SocketOption {

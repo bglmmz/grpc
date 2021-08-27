@@ -24,9 +24,9 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/bglmmz/grpc/encoding"
+	"github.com/bglmmz/grpc/test/codec_perf"
 	"github.com/golang/protobuf/proto"
-	"github.com/Hyperledger-TWGC/grpc/encoding"
-	"github.com/Hyperledger-TWGC/grpc/test/codec_perf"
 )
 
 func setupBenchmarkProtoCodecInputs(payloadBaseSize uint32) []proto.Message {

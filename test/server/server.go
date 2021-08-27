@@ -3,9 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
-	"github.com/Hyperledger-TWGC/grpc/test/hello"
+	"github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/credentials"
+	"github.com/bglmmz/grpc/test/hello"
 	"net"
 )
 
@@ -18,7 +18,7 @@ func (comm *CommServer)Speak(ctx context.Context, content *hello.Content) (*hell
 }
 
 func main() {
-	l, err := net.Listen("tcp", "0.0.0.0:6262")
+	l, err := net.Listen("tcp", "localhost:6262")
 	if err != nil {
 		panic(err)
 	}
@@ -28,11 +28,16 @@ func main() {
 	//	"E:/gopath/projects/grpc/test/single-cert/server.key")
 
 	// load tls cert pair double cert mode
-	creds, err := credentials.NewServerTLSFromFileDouble(
-		"E:/gopath/projects/grpc/test/double-cert/server_sign.crt",
-		"E:/gopath/projects/grpc/test/double-cert/server_sign.key",
-		"E:/gopath/projects/grpc/test/double-cert/server_cipher.crt",
-		"E:/gopath/projects/grpc/test/double-cert/server_cipher.key")
+	/*	creds, err := credentials.NewServerTLSFromFileForTwoWay(
+		"D:\\golang\\Hyperledger-TWGC\\grpc\\test\\dahui\\SS.crt",
+		"D:\\golang\\Hyperledger-TWGC\\grpc\\test\\dahui/SS.key",
+		"D:\\golang\\Hyperledger-TWGC\\grpc\\test\\dahui/SE.crt",
+		"D:\\golang\\Hyperledger-TWGC\\grpc\\test\\dahui/SE.key")*/
+	creds, err := credentials.NewServerTLSFromFileForTwoWay(
+		"D:\\golang\\bglmmz-grpc\\grpc\\test\\gm_cert\\server_sign.crt",
+		"D:\\golang\\bglmmz-grpc\\grpc\\test\\gm_cert\\server_sign.key",
+		"D:\\golang\\bglmmz-grpc\\grpc\\test\\gm_cert\\server_cipher.crt",
+		"D:\\golang\\bglmmz-grpc\\grpc\\test\\gm_cert\\server_cipher.key")
 	if err != nil {
 		panic(err)
 	}

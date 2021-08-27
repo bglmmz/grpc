@@ -26,7 +26,7 @@ import (
 	"math"
 	"net"
 
-	core "github.com/Hyperledger-TWGC/grpc/credentials/alts/internal"
+	core "github.com/bglmmz/grpc/credentials/alts/internal"
 )
 
 // ALTSRecordCrypto is the interface for gRPC ALTS record protocol.

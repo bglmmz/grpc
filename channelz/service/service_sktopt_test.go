@@ -30,12 +30,12 @@ import (
 	"strconv"
 	"testing"
 
+	channelzpb "github.com/bglmmz/grpc/channelz/grpc_channelz_v1"
+	"github.com/bglmmz/grpc/internal/channelz"
 	"github.com/golang/protobuf/ptypes"
 	durpb "github.com/golang/protobuf/ptypes/duration"
 	"golang.org/x/net/context"
 	"golang.org/x/sys/unix"
-	channelzpb "github.com/Hyperledger-TWGC/grpc/channelz/grpc_channelz_v1"
-	"github.com/Hyperledger-TWGC/grpc/internal/channelz"
 )
 
 func init() {

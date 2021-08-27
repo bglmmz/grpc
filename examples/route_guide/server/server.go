@@ -36,15 +36,15 @@ import (
 	"sync"
 	"time"
 
+	"github.com/bglmmz/grpc"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc"
 
-	"github.com/Hyperledger-TWGC/grpc/credentials"
-	"github.com/Hyperledger-TWGC/grpc/testdata"
+	"github.com/bglmmz/grpc/credentials"
+	"github.com/bglmmz/grpc/testdata"
 
 	"github.com/golang/protobuf/proto"
 
-	pb "github.com/Hyperledger-TWGC/grpc/examples/route_guide/routeguide"
+	pb "github.com/bglmmz/grpc/examples/route_guide/routeguide"
 )
 
 var (

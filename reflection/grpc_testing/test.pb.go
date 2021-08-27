@@ -9,7 +9,7 @@ import math "math"
 
 import (
 	context "golang.org/x/net/context"
-	grpc "github.com/Hyperledger-TWGC/grpc"
+	grpc "github.com/bglmmz/grpc"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -169,7 +169,7 @@ const _ = grpc.SupportPackageIsVersion4
 
 // SearchServiceClient is the client API for SearchService service.
 //
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/github.com/Hyperledger-TWGC/grpc#ClientConn.NewStream.
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/github.com/bglmmz/grpc#ClientConn.NewStream.
 type SearchServiceClient interface {
 	Search(ctx context.Context, in *SearchRequest, opts ...grpc.CallOption) (*SearchResponse, error)
 	StreamingSearch(ctx context.Context, opts ...grpc.CallOption) (SearchService_StreamingSearchClient, error)

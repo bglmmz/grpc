@@ -23,9 +23,9 @@ import (
 	"os"
 	"time"
 
+	"github.com/bglmmz/grpc"
+	pb "github.com/bglmmz/grpc/examples/helloworld/helloworld"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc"
-	pb "github.com/Hyperledger-TWGC/grpc/examples/helloworld/helloworld"
 )
 
 const (

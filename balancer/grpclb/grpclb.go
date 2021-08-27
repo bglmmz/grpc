@@ -21,7 +21,7 @@
 // Package grpclb defines a grpclb balancer.
 //
 // To install grpclb balancer, import this package as:
-//    import _ "github.com/Hyperledger-TWGC/grpc/balancer/grpclb"
+//    import _ "github.com/bglmmz/grpc/balancer/grpclb"
 package grpclb
 
 import (
@@ -31,15 +31,15 @@ import (
 	"sync"
 	"time"
 
+	"github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/balancer"
+	lbpb "github.com/bglmmz/grpc/balancer/grpclb/grpc_lb_v1"
+	"github.com/bglmmz/grpc/connectivity"
+	"github.com/bglmmz/grpc/grpclog"
+	"github.com/bglmmz/grpc/internal/backoff"
+	"github.com/bglmmz/grpc/resolver"
 	durationpb "github.com/golang/protobuf/ptypes/duration"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/balancer"
-	lbpb "github.com/Hyperledger-TWGC/grpc/balancer/grpclb/grpc_lb_v1"
-	"github.com/Hyperledger-TWGC/grpc/connectivity"
-	"github.com/Hyperledger-TWGC/grpc/grpclog"
-	"github.com/Hyperledger-TWGC/grpc/internal/backoff"
-	"github.com/Hyperledger-TWGC/grpc/resolver"
 )
 
 const (

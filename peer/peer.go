@@ -23,8 +23,8 @@ package peer
 import (
 	"net"
 
+	"github.com/bglmmz/grpc/credentials"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
 )
 
 // Peer contains the information of the peer for an RPC, such as the address

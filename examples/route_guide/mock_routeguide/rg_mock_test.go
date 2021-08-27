@@ -23,11 +23,11 @@ import (
 	"testing"
 	"time"
 
+	rgmock "github.com/bglmmz/grpc/examples/route_guide/mock_routeguide"
+	rgpb "github.com/bglmmz/grpc/examples/route_guide/routeguide"
 	"github.com/golang/mock/gomock"
 	"github.com/golang/protobuf/proto"
 	"golang.org/x/net/context"
-	rgmock "github.com/Hyperledger-TWGC/grpc/examples/route_guide/mock_routeguide"
-	rgpb "github.com/Hyperledger-TWGC/grpc/examples/route_guide/routeguide"
 )
 
 var msg = &rgpb.RouteNote{

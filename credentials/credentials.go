@@ -20,11 +20,12 @@
 // which encapsulate all the state needed by a client to authenticate with a
 // server and make various assertions, e.g., about the client's identity, role,
 // or whether it is authorized to make a particular call.
-package credentials // import "github.com/Hyperledger-TWGC/grpc/credentials"
+package credentials // import "github.com/bglmmz/grpc/credentials"
 
 import (
 	"errors"
 	"io/ioutil"
+	"log"
 	"net"
 	"strings"
 
@@ -233,10 +234,50 @@ func NewClientTLSFromFile(certFile, serverNameOverride string) (TransportCredent
 	cp.AddCert(cert)
 	_, ok := cert.PublicKey.(*sm2.PublicKey)
 	if ok {
-		return NewTLS(&tls.Config{ServerName: serverNameOverride, RootCAs: cp, GMSupport: &tls.GMSupport{}}), nil
+		log.Printf("NewClientTLSFromFile GMSupport, cp:%v", cp)
+		return NewTLS(&tls.Config{ServerName: serverNameOverride, RootCAs: cp, GMSupport: &tls.GMSupport{}, InsecureSkipVerify: true}), nil
 	} else {
 		return NewTLS(&tls.Config{ServerName: serverNameOverride, RootCAs: cp}), nil
 	}
+}
+
+func NewClientTLSFromFileForTwoWay(signCertFile, signKeyFile, cipherCertFile, cipherKeyFile string, serverNameOverride string) (TransportCredentials, error) {
+	//加载客户端双证书
+	signCert, err := tls.LoadX509KeyPair(signCertFile, signKeyFile)
+	if err != nil {
+		return nil, err
+	}
+
+	cipherCert, err := tls.LoadX509KeyPair(cipherCertFile, cipherKeyFile)
+	if err != nil {
+		return nil, err
+	}
+
+	//加载签发服务端证书的ca证书
+	/*b, err := ioutil.ReadFile(serverCaCertFile)
+	if err != nil {
+		return nil, err
+	}
+	cert, err := x509.Pem2Cert(b)
+	if err != nil {
+		return nil, err
+	}
+	cp := x509.NewCertPool()
+	cp.AddCert(cert)
+	_, ok := cert.PublicKey.(*sm2.PublicKey)*/
+	//if ok {
+	log.Printf("NewClientTLSFromFileForTwoWay GMSupport")
+	return NewTLS(&tls.Config{
+		Certificates: []tls.Certificate{signCert, cipherCert},
+		ServerName: serverNameOverride,
+		RootCAs: loadServerCaPool(),
+		GMSupport: &tls.GMSupport{},
+		InsecureSkipVerify: true,
+	},
+	), nil
+	//} else {
+	//	return NewTLS(&tls.Config{ServerName: serverNameOverride, RootCAs: cp}), nil
+	//}
 }
 
 // NewServerTLSFromCert constructs TLS credentials from the input certificate for server.
@@ -266,7 +307,7 @@ func NewServerTLSFromFileDouble(signCertFile, signKeyFile, cipherCertFile, ciphe
 	if err != nil {
 		return nil, err
 	}
-	
+
 	cipherCert, err := tls.LoadX509KeyPair(cipherCertFile, cipherKeyFile)
 	if err != nil {
 		return nil, err
@@ -274,10 +315,86 @@ func NewServerTLSFromFileDouble(signCertFile, signKeyFile, cipherCertFile, ciphe
 
 	_, ok := signCert.PrivateKey.(*sm2.PrivateKey)
 	if ok {
-		return NewTLS(&tls.Config{Certificates: []tls.Certificate{signCert, cipherCert}, GMSupport: &tls.GMSupport{}}), nil
+		return NewTLS(&tls.Config{
+			Certificates: []tls.Certificate{signCert, cipherCert},
+			GMSupport: &tls.GMSupport{},
+		}), nil
 	} else {
 		return NewTLS(&tls.Config{Certificates: []tls.Certificate{signCert, cipherCert}}), nil
 	}
+}
+
+func NewServerTLSFromFileForTwoWay(signCertFile, signKeyFile, cipherCertFile, cipherKeyFile string) (TransportCredentials, error) {
+	signCert, err := tls.LoadX509KeyPair(signCertFile, signKeyFile)
+	if err != nil {
+		return nil, err
+	}
+
+	cipherCert, err := tls.LoadX509KeyPair(cipherCertFile, cipherKeyFile)
+	if err != nil {
+		return nil, err
+	}
+
+	_, ok := signCert.PrivateKey.(*sm2.PrivateKey)
+	if ok {
+		log.Printf("NewServerTLSFromFileForTwoWay GMSupport")
+		return NewTLS(&tls.Config{
+			Certificates: []tls.Certificate{signCert, cipherCert},
+			GMSupport: &tls.GMSupport{},
+			ClientAuth: tls.RequireAndVerifyClientCert,
+			ClientCAs: loadClientCaPool(),
+			//InsecureSkipVerify: true,
+		}), nil
+	} else {
+		return NewTLS(&tls.Config{Certificates: []tls.Certificate{signCert, cipherCert}}), nil
+	}
+}
+
+
+func loadServerCaPool() *x509.CertPool {
+	// Load certificate of the CA who signed server's certificate
+	pemServerCA, err := ioutil.ReadFile("D:\\golang\\bglmmz-grpc\\grpc\\test\\gm_cert\\gmca.crt")
+	if err != nil {
+		log.Fatalf("failed to read CA cert file. %v", err)
+	}
+
+	cert, err := x509.Pem2Cert(pemServerCA)
+	if err != nil {
+		log.Fatalf("failed to add CA cert to cert pool. %v", err)
+		return nil
+	}
+	cp := x509.NewCertPool()
+	cp.AddCert(cert)
+	return cp
+	/*caPool := x509.NewCertPool()
+	if !caPool.AppendCertsFromPEM(pemServerCA) {
+		log.Fatalf("failed to add server CA cert to cert pool. %v", err)
+	}
+
+	return caPool*/
+}
+
+func loadClientCaPool() *x509.CertPool {
+	// Load certificate of the CA who signed client's certificate
+	pemClientCA, err := ioutil.ReadFile("D:\\golang\\bglmmz-grpc\\grpc\\test\\gm_cert\\gmca.crt")
+	if err != nil {
+		log.Fatalf("failed to read CA cert file. %v", err)
+	}
+
+	cert, err := x509.Pem2Cert(pemClientCA)
+	if err != nil {
+		log.Fatalf("failed to add CA cert to cert pool. %v", err)
+		return nil
+	}
+	caPool := x509.NewCertPool()
+	caPool.AddCert(cert)
+
+	/*caPool := x509.NewCertPool()
+	if !caPool.AppendCertsFromPEM(pemClientCA) {
+		log.Fatalf("failed to add client CA cert to cert pool. %v", err)
+	}*/
+
+	return caPool
 }
 
 // ChannelzSecurityInfo defines the interface that security protocols should implement

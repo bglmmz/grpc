@@ -29,22 +29,22 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/bglmmz/grpc/balancer"
+	_ "github.com/bglmmz/grpc/balancer/roundrobin" // To register roundrobin.
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/connectivity"
+	"github.com/bglmmz/grpc/credentials"
+	"github.com/bglmmz/grpc/grpclog"
+	"github.com/bglmmz/grpc/internal/backoff"
+	"github.com/bglmmz/grpc/internal/channelz"
+	"github.com/bglmmz/grpc/internal/transport"
+	"github.com/bglmmz/grpc/keepalive"
+	"github.com/bglmmz/grpc/resolver"
+	_ "github.com/bglmmz/grpc/resolver/dns"         // To register dns resolver.
+	_ "github.com/bglmmz/grpc/resolver/passthrough" // To register passthrough resolver.
+	"github.com/bglmmz/grpc/status"
 	"golang.org/x/net/context"
 	"golang.org/x/net/trace"
-	"github.com/Hyperledger-TWGC/grpc/balancer"
-	_ "github.com/Hyperledger-TWGC/grpc/balancer/roundrobin" // To register roundrobin.
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/connectivity"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
-	"github.com/Hyperledger-TWGC/grpc/grpclog"
-	"github.com/Hyperledger-TWGC/grpc/internal/backoff"
-	"github.com/Hyperledger-TWGC/grpc/internal/channelz"
-	"github.com/Hyperledger-TWGC/grpc/internal/transport"
-	"github.com/Hyperledger-TWGC/grpc/keepalive"
-	"github.com/Hyperledger-TWGC/grpc/resolver"
-	_ "github.com/Hyperledger-TWGC/grpc/resolver/dns"         // To register dns resolver.
-	_ "github.com/Hyperledger-TWGC/grpc/resolver/passthrough" // To register passthrough resolver.
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 const (

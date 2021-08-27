@@ -31,10 +31,10 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/bglmmz/grpc/codes"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes"
 	spb "google.golang.org/genproto/googleapis/rpc/status"
-	"github.com/Hyperledger-TWGC/grpc/codes"
 )
 
 // statusError is an alias of a status proto.  It implements error and Status,

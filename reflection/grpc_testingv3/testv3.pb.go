@@ -19,8 +19,8 @@ import fmt "fmt"
 import math "math"
 
 import (
+	grpc "github.com/bglmmz/grpc"
 	context "golang.org/x/net/context"
-	grpc "github.com/Hyperledger-TWGC/grpc"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.

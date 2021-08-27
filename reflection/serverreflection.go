@@ -25,7 +25,7 @@ The service implemented is defined in:
 https://github.com/grpc/grpc/blob/master/src/proto/grpc/reflection/v1alpha/reflection.proto.
 
 To register server reflection on a gRPC server:
-	import "github.com/Hyperledger-TWGC/grpc/reflection"
+	import "github.com/bglmmz/grpc/reflection"
 
 	s := grpc.NewServer()
 	pb.RegisterYourOwnServer(s, &server{})
@@ -36,7 +36,7 @@ To register server reflection on a gRPC server:
 	s.Serve(lis)
 
 */
-package reflection // import "github.com/Hyperledger-TWGC/grpc/reflection"
+package reflection // import "github.com/bglmmz/grpc/reflection"
 
 import (
 	"bytes"
@@ -48,12 +48,12 @@ import (
 	"sort"
 	"sync"
 
+	"github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/codes"
+	rpb "github.com/bglmmz/grpc/reflection/grpc_reflection_v1alpha"
+	"github.com/bglmmz/grpc/status"
 	"github.com/golang/protobuf/proto"
 	dpb "github.com/golang/protobuf/protoc-gen-go/descriptor"
-	"github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	rpb "github.com/Hyperledger-TWGC/grpc/reflection/grpc_reflection_v1alpha"
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 type serverReflectionServer struct {

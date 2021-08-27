@@ -24,12 +24,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/bglmmz/grpc/balancer"
+	"github.com/bglmmz/grpc/connectivity"
+	_ "github.com/bglmmz/grpc/grpclog/glogger"
+	"github.com/bglmmz/grpc/internal/leakcheck"
+	"github.com/bglmmz/grpc/internal/transport"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc/balancer"
-	"github.com/Hyperledger-TWGC/grpc/connectivity"
-	_ "github.com/Hyperledger-TWGC/grpc/grpclog/glogger"
-	"github.com/Hyperledger-TWGC/grpc/internal/leakcheck"
-	"github.com/Hyperledger-TWGC/grpc/internal/transport"
 )
 
 const goroutineCount = 5

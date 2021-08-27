@@ -29,14 +29,14 @@ import (
 	"sync"
 	"sync/atomic"
 
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/credentials"
+	"github.com/bglmmz/grpc/keepalive"
+	"github.com/bglmmz/grpc/metadata"
+	"github.com/bglmmz/grpc/stats"
+	"github.com/bglmmz/grpc/status"
+	"github.com/bglmmz/grpc/tap"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
-	"github.com/Hyperledger-TWGC/grpc/keepalive"
-	"github.com/Hyperledger-TWGC/grpc/metadata"
-	"github.com/Hyperledger-TWGC/grpc/stats"
-	"github.com/Hyperledger-TWGC/grpc/status"
-	"github.com/Hyperledger-TWGC/grpc/tap"
 )
 
 // recvMsg represents the received msg from the transport. All transport

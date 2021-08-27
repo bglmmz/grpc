@@ -22,7 +22,7 @@ import (
 	"crypto/aes"
 	"crypto/cipher"
 
-	core "github.com/Hyperledger-TWGC/grpc/credentials/alts/internal"
+	core "github.com/bglmmz/grpc/credentials/alts/internal"
 )
 
 const (

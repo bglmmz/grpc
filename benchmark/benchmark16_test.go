@@ -24,8 +24,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/benchmark/stats"
+	"github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/benchmark/stats"
 )
 
 func BenchmarkClientStreamc1(b *testing.B) {

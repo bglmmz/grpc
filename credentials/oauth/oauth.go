@@ -24,11 +24,11 @@ import (
 	"io/ioutil"
 	"sync"
 
+	"github.com/bglmmz/grpc/credentials"
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
 	"golang.org/x/oauth2/jwt"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
 )
 
 // TokenSource supplies PerRPCCredentials from an oauth2.TokenSource.

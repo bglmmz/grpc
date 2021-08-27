@@ -23,11 +23,11 @@ import (
 	"os"
 	"time"
 
+	"github.com/bglmmz/grpc"
+	pb "github.com/bglmmz/grpc/examples/helloworld/helloworld"
+	"github.com/bglmmz/grpc/status"
 	"golang.org/x/net/context"
 	epb "google.golang.org/genproto/googleapis/rpc/errdetails"
-	"github.com/Hyperledger-TWGC/grpc"
-	pb "github.com/Hyperledger-TWGC/grpc/examples/helloworld/helloworld"
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 func main() {

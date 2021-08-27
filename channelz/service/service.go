@@ -25,16 +25,16 @@ import (
 	"net"
 	"time"
 
+	"github.com/bglmmz/grpc"
+	channelzgrpc "github.com/bglmmz/grpc/channelz/grpc_channelz_v1"
+	channelzpb "github.com/bglmmz/grpc/channelz/grpc_channelz_v1"
+	"github.com/bglmmz/grpc/connectivity"
+	"github.com/bglmmz/grpc/credentials"
+	"github.com/bglmmz/grpc/internal/channelz"
 	"github.com/golang/protobuf/ptypes"
 	durpb "github.com/golang/protobuf/ptypes/duration"
 	wrpb "github.com/golang/protobuf/ptypes/wrappers"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc"
-	channelzgrpc "github.com/Hyperledger-TWGC/grpc/channelz/grpc_channelz_v1"
-	channelzpb "github.com/Hyperledger-TWGC/grpc/channelz/grpc_channelz_v1"
-	"github.com/Hyperledger-TWGC/grpc/connectivity"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
-	"github.com/Hyperledger-TWGC/grpc/internal/channelz"
 )
 
 func init() {

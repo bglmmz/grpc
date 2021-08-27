@@ -26,18 +26,18 @@ import (
 	"sync"
 	"time"
 
+	"github.com/bglmmz/grpc/balancer"
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/encoding"
+	"github.com/bglmmz/grpc/grpclog"
+	"github.com/bglmmz/grpc/internal/channelz"
+	"github.com/bglmmz/grpc/internal/grpcrand"
+	"github.com/bglmmz/grpc/internal/transport"
+	"github.com/bglmmz/grpc/metadata"
+	"github.com/bglmmz/grpc/stats"
+	"github.com/bglmmz/grpc/status"
 	"golang.org/x/net/context"
 	"golang.org/x/net/trace"
-	"github.com/Hyperledger-TWGC/grpc/balancer"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/encoding"
-	"github.com/Hyperledger-TWGC/grpc/grpclog"
-	"github.com/Hyperledger-TWGC/grpc/internal/channelz"
-	"github.com/Hyperledger-TWGC/grpc/internal/grpcrand"
-	"github.com/Hyperledger-TWGC/grpc/internal/transport"
-	"github.com/Hyperledger-TWGC/grpc/metadata"
-	"github.com/Hyperledger-TWGC/grpc/stats"
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 // StreamHandler defines the handler called by gRPC server to complete the

@@ -28,15 +28,15 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/benchmark"
-	testpb "github.com/Hyperledger-TWGC/grpc/benchmark/grpc_testing"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
-	"github.com/Hyperledger-TWGC/grpc/grpclog"
-	"github.com/Hyperledger-TWGC/grpc/internal/syscall"
-	"github.com/Hyperledger-TWGC/grpc/status"
-	"github.com/Hyperledger-TWGC/grpc/testdata"
+	"github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/benchmark"
+	testpb "github.com/bglmmz/grpc/benchmark/grpc_testing"
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/credentials"
+	"github.com/bglmmz/grpc/grpclog"
+	"github.com/bglmmz/grpc/internal/syscall"
+	"github.com/bglmmz/grpc/status"
+	"github.com/bglmmz/grpc/testdata"
 )
 
 var (

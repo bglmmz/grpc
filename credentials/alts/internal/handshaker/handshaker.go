@@ -26,15 +26,15 @@ import (
 	"net"
 	"sync"
 
+	grpc "github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/credentials"
+	core "github.com/bglmmz/grpc/credentials/alts/internal"
+	"github.com/bglmmz/grpc/credentials/alts/internal/authinfo"
+	"github.com/bglmmz/grpc/credentials/alts/internal/conn"
+	altsgrpc "github.com/bglmmz/grpc/credentials/alts/internal/proto/grpc_gcp"
+	altspb "github.com/bglmmz/grpc/credentials/alts/internal/proto/grpc_gcp"
 	"golang.org/x/net/context"
-	grpc "github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
-	core "github.com/Hyperledger-TWGC/grpc/credentials/alts/internal"
-	"github.com/Hyperledger-TWGC/grpc/credentials/alts/internal/authinfo"
-	"github.com/Hyperledger-TWGC/grpc/credentials/alts/internal/conn"
-	altsgrpc "github.com/Hyperledger-TWGC/grpc/credentials/alts/internal/proto/grpc_gcp"
-	altspb "github.com/Hyperledger-TWGC/grpc/credentials/alts/internal/proto/grpc_gcp"
 )
 
 const (

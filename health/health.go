@@ -25,10 +25,10 @@ package health
 import (
 	"sync"
 
+	"github.com/bglmmz/grpc/codes"
+	healthpb "github.com/bglmmz/grpc/health/grpc_health_v1"
+	"github.com/bglmmz/grpc/status"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	healthpb "github.com/Hyperledger-TWGC/grpc/health/grpc_health_v1"
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 // Server implements `service Health`.

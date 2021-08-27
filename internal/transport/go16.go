@@ -24,8 +24,8 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/status"
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/status"
 
 	"golang.org/x/net/context"
 )

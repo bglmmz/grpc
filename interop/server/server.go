@@ -23,13 +23,13 @@ import (
 	"net"
 	"strconv"
 
-	"github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
-	"github.com/Hyperledger-TWGC/grpc/credentials/alts"
-	"github.com/Hyperledger-TWGC/grpc/grpclog"
-	"github.com/Hyperledger-TWGC/grpc/interop"
-	testpb "github.com/Hyperledger-TWGC/grpc/interop/grpc_testing"
-	"github.com/Hyperledger-TWGC/grpc/testdata"
+	"github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/credentials"
+	"github.com/bglmmz/grpc/credentials/alts"
+	"github.com/bglmmz/grpc/grpclog"
+	"github.com/bglmmz/grpc/interop"
+	testpb "github.com/bglmmz/grpc/interop/grpc_testing"
+	"github.com/bglmmz/grpc/testdata"
 )
 
 var (

@@ -19,8 +19,8 @@
 package grpc
 
 import (
-	"github.com/Hyperledger-TWGC/grpc/encoding"
-	_ "github.com/Hyperledger-TWGC/grpc/encoding/proto" // to register the Codec for "proto"
+	"github.com/bglmmz/grpc/encoding"
+	_ "github.com/bglmmz/grpc/encoding/proto" // to register the Codec for "proto"
 )
 
 // baseCodec contains the functionality of both Codec and encoding.Codec, but

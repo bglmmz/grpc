@@ -20,9 +20,9 @@ package health_test
 import (
 	"testing"
 
-	"github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/health"
-	pb "github.com/Hyperledger-TWGC/grpc/health/grpc_health_v1"
+	"github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/health"
+	pb "github.com/bglmmz/grpc/health/grpc_health_v1"
 )
 
 // Make sure the service implementation complies with the proto definition.

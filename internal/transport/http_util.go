@@ -31,12 +31,12 @@ import (
 	"time"
 	"unicode/utf8"
 
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/status"
 	"github.com/golang/protobuf/proto"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/hpack"
 	spb "google.golang.org/genproto/googleapis/rpc/status"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 const (

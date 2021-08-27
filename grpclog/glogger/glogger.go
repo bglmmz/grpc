@@ -23,8 +23,8 @@ package glogger
 import (
 	"fmt"
 
+	"github.com/bglmmz/grpc/grpclog"
 	"github.com/golang/glog"
-	"github.com/Hyperledger-TWGC/grpc/grpclog"
 )
 
 func init() {

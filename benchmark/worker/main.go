@@ -29,12 +29,12 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/bglmmz/grpc"
+	testpb "github.com/bglmmz/grpc/benchmark/grpc_testing"
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/grpclog"
+	"github.com/bglmmz/grpc/status"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc"
-	testpb "github.com/Hyperledger-TWGC/grpc/benchmark/grpc_testing"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/grpclog"
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 var (

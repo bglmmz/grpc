@@ -22,7 +22,7 @@ import (
 	"reflect"
 	"testing"
 
-	altspb "github.com/Hyperledger-TWGC/grpc/credentials/alts/internal/proto/grpc_gcp"
+	altspb "github.com/bglmmz/grpc/credentials/alts/internal/proto/grpc_gcp"
 )
 
 const (

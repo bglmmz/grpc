@@ -24,8 +24,8 @@ package internal
 import (
 	"net"
 
+	"github.com/bglmmz/grpc/credentials"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
 )
 
 const (

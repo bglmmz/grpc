@@ -30,13 +30,13 @@ import (
 	"sync"
 	"time"
 
+	"github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/grpclog"
+	"github.com/bglmmz/grpc/interop"
+	testpb "github.com/bglmmz/grpc/interop/grpc_testing"
+	"github.com/bglmmz/grpc/status"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/grpclog"
-	"github.com/Hyperledger-TWGC/grpc/interop"
-	testpb "github.com/Hyperledger-TWGC/grpc/interop/grpc_testing"
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 var (

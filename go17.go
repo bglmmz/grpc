@@ -27,10 +27,10 @@ import (
 	"net"
 	"net/http"
 
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/internal/transport"
+	"github.com/bglmmz/grpc/status"
 	netctx "golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/internal/transport"
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 // dialContext connects to the address on the named network.

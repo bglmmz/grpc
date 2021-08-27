@@ -25,13 +25,13 @@ import (
 	"testing"
 	"time"
 
+	channelzpb "github.com/bglmmz/grpc/channelz/grpc_channelz_v1"
+	"github.com/bglmmz/grpc/connectivity"
+	"github.com/bglmmz/grpc/credentials"
+	"github.com/bglmmz/grpc/internal/channelz"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes"
 	"golang.org/x/net/context"
-	channelzpb "github.com/Hyperledger-TWGC/grpc/channelz/grpc_channelz_v1"
-	"github.com/Hyperledger-TWGC/grpc/connectivity"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
-	"github.com/Hyperledger-TWGC/grpc/internal/channelz"
 )
 
 func init() {

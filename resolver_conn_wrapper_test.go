@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/Hyperledger-TWGC/grpc/resolver"
+	"github.com/bglmmz/grpc/resolver"
 )
 
 func TestParseTarget(t *testing.T) {

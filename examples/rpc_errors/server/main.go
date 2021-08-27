@@ -24,12 +24,12 @@ import (
 	"net"
 	"sync"
 
+	"github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/codes"
+	pb "github.com/bglmmz/grpc/examples/helloworld/helloworld"
+	"github.com/bglmmz/grpc/status"
 	"golang.org/x/net/context"
 	epb "google.golang.org/genproto/googleapis/rpc/errdetails"
-	"github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	pb "github.com/Hyperledger-TWGC/grpc/examples/helloworld/helloworld"
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 const (

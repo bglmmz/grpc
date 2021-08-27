@@ -27,16 +27,16 @@ import (
 	"strings"
 	"time"
 
+	"github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/grpclog"
+	testpb "github.com/bglmmz/grpc/interop/grpc_testing"
+	"github.com/bglmmz/grpc/metadata"
+	"github.com/bglmmz/grpc/status"
 	"github.com/golang/protobuf/proto"
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
-	"github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/grpclog"
-	testpb "github.com/Hyperledger-TWGC/grpc/interop/grpc_testing"
-	"github.com/Hyperledger-TWGC/grpc/metadata"
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 var (

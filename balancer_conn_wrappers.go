@@ -22,10 +22,10 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/Hyperledger-TWGC/grpc/balancer"
-	"github.com/Hyperledger-TWGC/grpc/connectivity"
-	"github.com/Hyperledger-TWGC/grpc/grpclog"
-	"github.com/Hyperledger-TWGC/grpc/resolver"
+	"github.com/bglmmz/grpc/balancer"
+	"github.com/bglmmz/grpc/connectivity"
+	"github.com/bglmmz/grpc/grpclog"
+	"github.com/bglmmz/grpc/resolver"
 )
 
 // scStateUpdate contains the subConn and the new state it changed to.

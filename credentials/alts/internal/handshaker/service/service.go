@@ -23,7 +23,7 @@ package service
 import (
 	"sync"
 
-	grpc "github.com/Hyperledger-TWGC/grpc"
+	grpc "github.com/bglmmz/grpc"
 )
 
 var (

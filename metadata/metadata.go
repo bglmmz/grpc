@@ -19,7 +19,7 @@
 // Package metadata define the structure of the metadata supported by gRPC library.
 // Please refer to https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md
 // for more information about custom-metadata.
-package metadata // import "github.com/Hyperledger-TWGC/grpc/metadata"
+package metadata // import "github.com/bglmmz/grpc/metadata"
 
 import (
 	"fmt"

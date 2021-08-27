@@ -33,15 +33,15 @@ import (
 	"sync"
 	"time"
 
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/credentials"
+	"github.com/bglmmz/grpc/metadata"
+	"github.com/bglmmz/grpc/peer"
+	"github.com/bglmmz/grpc/stats"
+	"github.com/bglmmz/grpc/status"
 	"github.com/golang/protobuf/proto"
 	"golang.org/x/net/context"
 	"golang.org/x/net/http2"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
-	"github.com/Hyperledger-TWGC/grpc/metadata"
-	"github.com/Hyperledger-TWGC/grpc/peer"
-	"github.com/Hyperledger-TWGC/grpc/stats"
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 // NewServerHandlerTransport returns a ServerTransport handling gRPC

@@ -31,16 +31,16 @@ import (
 	"sync"
 	"time"
 
+	"github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/credentials"
+	"github.com/bglmmz/grpc/grpclog"
+	"github.com/bglmmz/grpc/interop"
+	testpb "github.com/bglmmz/grpc/interop/grpc_testing"
+	"github.com/bglmmz/grpc/status"
+	metricspb "github.com/bglmmz/grpc/stress/grpc_testing"
+	"github.com/bglmmz/grpc/testdata"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
-	"github.com/Hyperledger-TWGC/grpc/grpclog"
-	"github.com/Hyperledger-TWGC/grpc/interop"
-	testpb "github.com/Hyperledger-TWGC/grpc/interop/grpc_testing"
-	"github.com/Hyperledger-TWGC/grpc/status"
-	metricspb "github.com/Hyperledger-TWGC/grpc/stress/grpc_testing"
-	"github.com/Hyperledger-TWGC/grpc/testdata"
 )
 
 var (

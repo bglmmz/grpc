@@ -31,12 +31,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/bglmmz/grpc"
+	testpb "github.com/bglmmz/grpc/benchmark/grpc_testing"
+	"github.com/bglmmz/grpc/benchmark/latency"
+	"github.com/bglmmz/grpc/benchmark/stats"
+	"github.com/bglmmz/grpc/grpclog"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc"
-	testpb "github.com/Hyperledger-TWGC/grpc/benchmark/grpc_testing"
-	"github.com/Hyperledger-TWGC/grpc/benchmark/latency"
-	"github.com/Hyperledger-TWGC/grpc/benchmark/stats"
-	"github.com/Hyperledger-TWGC/grpc/grpclog"
 )
 
 // AddOne add 1 to the features slice

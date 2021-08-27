@@ -24,8 +24,8 @@ import (
 	"math"
 	"sync"
 
+	"github.com/bglmmz/grpc/encoding"
 	"github.com/golang/protobuf/proto"
-	"github.com/Hyperledger-TWGC/grpc/encoding"
 )
 
 // Name is the name registered for the proto compressor.

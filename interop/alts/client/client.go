@@ -23,11 +23,11 @@ import (
 	"flag"
 	"time"
 
+	grpc "github.com/bglmmz/grpc"
+	"github.com/bglmmz/grpc/credentials/alts"
+	"github.com/bglmmz/grpc/grpclog"
+	testpb "github.com/bglmmz/grpc/interop/grpc_testing"
 	"golang.org/x/net/context"
-	grpc "github.com/Hyperledger-TWGC/grpc"
-	"github.com/Hyperledger-TWGC/grpc/credentials/alts"
-	"github.com/Hyperledger-TWGC/grpc/grpclog"
-	testpb "github.com/Hyperledger-TWGC/grpc/interop/grpc_testing"
 )
 
 var (

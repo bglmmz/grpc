@@ -30,8 +30,8 @@ import (
 	"runtime"
 	"strings"
 
+	"github.com/bglmmz/grpc/peer"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc/peer"
 )
 
 const (

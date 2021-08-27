@@ -59,15 +59,15 @@ import (
 	"testing"
 	"time"
 
+	"github.com/bglmmz/grpc"
+	bm "github.com/bglmmz/grpc/benchmark"
+	testpb "github.com/bglmmz/grpc/benchmark/grpc_testing"
+	"github.com/bglmmz/grpc/benchmark/latency"
+	"github.com/bglmmz/grpc/benchmark/stats"
+	"github.com/bglmmz/grpc/grpclog"
+	"github.com/bglmmz/grpc/internal/channelz"
+	"github.com/bglmmz/grpc/test/bufconn"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc"
-	bm "github.com/Hyperledger-TWGC/grpc/benchmark"
-	testpb "github.com/Hyperledger-TWGC/grpc/benchmark/grpc_testing"
-	"github.com/Hyperledger-TWGC/grpc/benchmark/latency"
-	"github.com/Hyperledger-TWGC/grpc/benchmark/stats"
-	"github.com/Hyperledger-TWGC/grpc/grpclog"
-	"github.com/Hyperledger-TWGC/grpc/internal/channelz"
-	"github.com/Hyperledger-TWGC/grpc/test/bufconn"
 )
 
 const (

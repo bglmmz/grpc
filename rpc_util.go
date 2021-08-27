@@ -31,16 +31,16 @@ import (
 	"sync"
 	"time"
 
+	"github.com/bglmmz/grpc/codes"
+	"github.com/bglmmz/grpc/credentials"
+	"github.com/bglmmz/grpc/encoding"
+	"github.com/bglmmz/grpc/encoding/proto"
+	"github.com/bglmmz/grpc/internal/transport"
+	"github.com/bglmmz/grpc/metadata"
+	"github.com/bglmmz/grpc/peer"
+	"github.com/bglmmz/grpc/stats"
+	"github.com/bglmmz/grpc/status"
 	"golang.org/x/net/context"
-	"github.com/Hyperledger-TWGC/grpc/codes"
-	"github.com/Hyperledger-TWGC/grpc/credentials"
-	"github.com/Hyperledger-TWGC/grpc/encoding"
-	"github.com/Hyperledger-TWGC/grpc/encoding/proto"
-	"github.com/Hyperledger-TWGC/grpc/internal/transport"
-	"github.com/Hyperledger-TWGC/grpc/metadata"
-	"github.com/Hyperledger-TWGC/grpc/peer"
-	"github.com/Hyperledger-TWGC/grpc/stats"
-	"github.com/Hyperledger-TWGC/grpc/status"
 )
 
 // Compressor defines the interface gRPC uses to compress a message.
