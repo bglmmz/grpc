@@ -193,14 +193,15 @@ func (c *tlsCreds) OverrideServerName(serverNameOverride string) error {
 func NewTLS(c *tls.Config) TransportCredentials {
 	tc := &tlsCreds{cloneTLSConfig(c)}
 	tc.config.NextProtos = alpnProtoStr
-	if len(c.Certificates) > 0 {
+	tc.config.GMSupport = &tls.GMSupport{}
+	/*if len(c.Certificates) > 0 {
 		_, ok := c.Certificates[0].PrivateKey.(*sm2.PrivateKey)
 		if ok {
 			tc.config.GMSupport = &tls.GMSupport{}
 			// just for test
 			// tc.config.ClientAuth = tls.RequestClientCert
 		}
-	} /*else {
+	} *//*else {
 		certs := c.RootCAs.GetCerts()
 		if len(certs) > 0 {
 			if _, ok := certs[0].PublicKey.(*sm2.PublicKey); ok {
