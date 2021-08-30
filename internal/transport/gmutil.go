@@ -3,8 +3,8 @@ package transport
 import (
 	origin "crypto/tls"
 	origX509 "crypto/x509"
-	"github.com/Hyperledger-TWGC/ccs-gm/tls"
-	"github.com/Hyperledger-TWGC/ccs-gm/x509"
+	tls "github.com/tjfoc/gmsm/gmtls"
+	"github.com/tjfoc/gmsm/x509"
 )
 
 
@@ -71,7 +71,7 @@ func cloneCertificate(orig *origX509.Certificate) *x509.Certificate {
 	//ret.URIs                                                                            =  orig.URIs
 	ret.PermittedDNSDomainsCritical                                                     =  orig.PermittedDNSDomainsCritical
 	ret.PermittedDNSDomains                                                             =  orig.PermittedDNSDomains
-	ret.ExcludedDNSDomains                                                              =  orig.ExcludedDNSDomains
+	//ret.ExcludedDNSDomains                                                              =  orig.ExcludedDNSDomains
 	//ret.PermittedIPRanges                                                               =  orig.PermittedIPRanges
 	//ret.ExcludedIPRanges                                                                =  orig.ExcludedIPRanges
 	//ret.PermittedEmailAddresses                                                         =  orig.PermittedEmailAddresses

@@ -29,10 +29,10 @@ import (
 	"net"
 	"strings"
 
-	"github.com/Hyperledger-TWGC/ccs-gm/sm2"
-	"github.com/Hyperledger-TWGC/ccs-gm/tls"
-	"github.com/Hyperledger-TWGC/ccs-gm/x509"
 	"github.com/golang/protobuf/proto"
+	tls "github.com/tjfoc/gmsm/gmtls"
+	"github.com/tjfoc/gmsm/sm2"
+	"github.com/tjfoc/gmsm/x509"
 	"golang.org/x/net/context"
 )
 
@@ -200,14 +200,14 @@ func NewTLS(c *tls.Config) TransportCredentials {
 			// just for test
 			// tc.config.ClientAuth = tls.RequestClientCert
 		}
-	} else {
+	} /*else {
 		certs := c.RootCAs.GetCerts()
 		if len(certs) > 0 {
 			if _, ok := certs[0].PublicKey.(*sm2.PublicKey); ok {
 				tc.config.GMSupport = &tls.GMSupport{}
 			}
 		}
-	}
+	}*/
 	return tc
 }
 
@@ -226,14 +226,11 @@ func NewClientTLSFromFile(certFile, serverNameOverride string) (TransportCredent
 	if err != nil {
 		return nil, err
 	}
-	cert, err := x509.Pem2Cert(b)
-	if err != nil {
-		return nil, err
-	}
+
 	cp := x509.NewCertPool()
-	cp.AddCert(cert)
-	_, ok := cert.PublicKey.(*sm2.PublicKey)
-	if ok {
+	cp.AppendCertsFromPEM(b)
+	gmSupport := true
+	if gmSupport {
 		log.Printf("NewClientTLSFromFile GMSupport, cp:%v", cp)
 		return NewTLS(&tls.Config{ServerName: serverNameOverride, RootCAs: cp, GMSupport: &tls.GMSupport{}, InsecureSkipVerify: true}), nil
 	} else {
@@ -358,13 +355,8 @@ func loadServerCaPool() *x509.CertPool {
 		log.Fatalf("failed to read CA cert file. %v", err)
 	}
 
-	cert, err := x509.Pem2Cert(pemServerCA)
-	if err != nil {
-		log.Fatalf("failed to add CA cert to cert pool. %v", err)
-		return nil
-	}
 	cp := x509.NewCertPool()
-	cp.AddCert(cert)
+	cp.AppendCertsFromPEM(pemServerCA)
 	return cp
 	/*caPool := x509.NewCertPool()
 	if !caPool.AppendCertsFromPEM(pemServerCA) {
@@ -381,13 +373,8 @@ func loadClientCaPool() *x509.CertPool {
 		log.Fatalf("failed to read CA cert file. %v", err)
 	}
 
-	cert, err := x509.Pem2Cert(pemClientCA)
-	if err != nil {
-		log.Fatalf("failed to add CA cert to cert pool. %v", err)
-		return nil
-	}
 	caPool := x509.NewCertPool()
-	caPool.AddCert(cert)
+	caPool.AppendCertsFromPEM(pemClientCA)
 
 	/*caPool := x509.NewCertPool()
 	if !caPool.AppendCertsFromPEM(pemClientCA) {

@@ -21,7 +21,7 @@
 package credentials
 
 import (
-	"github.com/Hyperledger-TWGC/ccs-gm/tls"
+	tls "github.com/tjfoc/gmsm/gmtls"
 )
 
 func init() {
