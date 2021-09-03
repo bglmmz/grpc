@@ -21,7 +21,7 @@
 package credentials
 
 import (
-	tls "github.com/tjfoc/gmsm/gmtls"
+	tls "github.com/bglmmz/gmsm/gmtls"
 )
 
 func init() {

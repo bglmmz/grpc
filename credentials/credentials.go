@@ -29,10 +29,10 @@ import (
 	"net"
 	"strings"
 
+	tls "github.com/bglmmz/gmsm/gmtls"
+	"github.com/bglmmz/gmsm/sm2"
+	"github.com/bglmmz/gmsm/x509"
 	"github.com/golang/protobuf/proto"
-	tls "github.com/tjfoc/gmsm/gmtls"
-	"github.com/tjfoc/gmsm/sm2"
-	"github.com/tjfoc/gmsm/x509"
 	"golang.org/x/net/context"
 )
 
@@ -201,7 +201,7 @@ func NewTLS(c *tls.Config) TransportCredentials {
 			// just for test
 			// tc.config.ClientAuth = tls.RequestClientCert
 		}
-	} *//*else {
+	} */ /*else {
 		certs := c.RootCAs.GetCerts()
 		if len(certs) > 0 {
 			if _, ok := certs[0].PublicKey.(*sm2.PublicKey); ok {
@@ -266,10 +266,10 @@ func NewClientTLSFromFileForTwoWay(signCertFile, signKeyFile, cipherCertFile, ci
 	//if ok {
 	log.Printf("NewClientTLSFromFileForTwoWay GMSupport")
 	return NewTLS(&tls.Config{
-		Certificates: []tls.Certificate{signCert, cipherCert},
-		ServerName: serverNameOverride,
-		RootCAs: loadServerCaPool(),
-		GMSupport: &tls.GMSupport{},
+		Certificates:       []tls.Certificate{signCert, cipherCert},
+		ServerName:         serverNameOverride,
+		RootCAs:            loadServerCaPool(),
+		GMSupport:          &tls.GMSupport{},
 		InsecureSkipVerify: true,
 	},
 	), nil
@@ -315,7 +315,7 @@ func NewServerTLSFromFileDouble(signCertFile, signKeyFile, cipherCertFile, ciphe
 	if ok {
 		return NewTLS(&tls.Config{
 			Certificates: []tls.Certificate{signCert, cipherCert},
-			GMSupport: &tls.GMSupport{},
+			GMSupport:    &tls.GMSupport{},
 		}), nil
 	} else {
 		return NewTLS(&tls.Config{Certificates: []tls.Certificate{signCert, cipherCert}}), nil
@@ -338,16 +338,15 @@ func NewServerTLSFromFileForTwoWay(signCertFile, signKeyFile, cipherCertFile, ci
 		log.Printf("NewServerTLSFromFileForTwoWay GMSupport")
 		return NewTLS(&tls.Config{
 			Certificates: []tls.Certificate{signCert, cipherCert},
-			GMSupport: &tls.GMSupport{},
-			ClientAuth: tls.RequireAndVerifyClientCert,
-			ClientCAs: loadClientCaPool(),
+			GMSupport:    &tls.GMSupport{},
+			ClientAuth:   tls.RequireAndVerifyClientCert,
+			ClientCAs:    loadClientCaPool(),
 			//InsecureSkipVerify: true,
 		}), nil
 	} else {
 		return NewTLS(&tls.Config{Certificates: []tls.Certificate{signCert, cipherCert}}), nil
 	}
 }
-
 
 func loadServerCaPool() *x509.CertPool {
 	// Load certificate of the CA who signed server's certificate
