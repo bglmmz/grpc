@@ -268,7 +268,7 @@ func NewClientTLSFromFileForTwoWay(signCertFile, signKeyFile, cipherCertFile, ci
 	return NewTLS(&tls.Config{
 		Certificates:       []tls.Certificate{signCert, cipherCert},
 		ServerName:         serverNameOverride,
-		RootCAs:            loadServerCaPool(),
+		RootCAs:            loadClientCaPool(),
 		GMSupport:          &tls.GMSupport{},
 		InsecureSkipVerify: true,
 	},
@@ -340,7 +340,7 @@ func NewServerTLSFromFileForTwoWay(signCertFile, signKeyFile, cipherCertFile, ci
 			Certificates: []tls.Certificate{signCert, cipherCert},
 			GMSupport:    &tls.GMSupport{},
 			ClientAuth:   tls.RequireAndVerifyClientCert,
-			ClientCAs:    loadClientCaPool(),
+			ClientCAs:    loadServerCaPool(),
 			//InsecureSkipVerify: true,
 		}), nil
 	} else {
@@ -350,7 +350,7 @@ func NewServerTLSFromFileForTwoWay(signCertFile, signKeyFile, cipherCertFile, ci
 
 func loadServerCaPool() *x509.CertPool {
 	// Load certificate of the CA who signed server's certificate
-	pemServerCA, err := ioutil.ReadFile("D:\\golang\\bglmmz-grpc\\grpc\\test\\gm_cert\\gmca.crt")
+	pemServerCA, err := ioutil.ReadFile("D:\\golang\\github.com\\bglmmz\\grpc\\test\\gm_cert\\dahui\\gmca.crt")
 	if err != nil {
 		log.Fatalf("failed to read CA cert file. %v", err)
 	}
@@ -368,7 +368,7 @@ func loadServerCaPool() *x509.CertPool {
 
 func loadClientCaPool() *x509.CertPool {
 	// Load certificate of the CA who signed client's certificate
-	pemClientCA, err := ioutil.ReadFile("D:\\golang\\bglmmz-grpc\\grpc\\test\\gm_cert\\gmca.crt")
+	pemClientCA, err := ioutil.ReadFile("D:\\golang\\github.com\\bglmmz\\grpc\\test\\gm_cert\\dahui\\gmca.crt")
 	if err != nil {
 		log.Fatalf("failed to read CA cert file. %v", err)
 	}
